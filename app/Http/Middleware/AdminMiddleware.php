@@ -14,13 +14,15 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    // public function handle(Request $request, Closure $next): Response
-    // {
-    //     if (!Auth::check()) {
-    //         return redirect('/');
-    //     }
-
-    //     return $next($request);
-            
-    // }
+    public function handle(Request $request, Closure $next): Response
+    {
+        // if(Auth::user()->role=='admin'){
+        //     return $next($request);       
+        // }
+        // return redirect('/');
+        if(Auth::check()){
+            return redirect('/crud-order');
+        }
+        return $next($request);  
+    }
 }

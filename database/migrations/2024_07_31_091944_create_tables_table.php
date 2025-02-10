@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->integer('number');
-            $table->text('qr');
+            $table->text('name');
+            $table->string('qr')->nullable();
             $table->timestamps();
         });
     }
